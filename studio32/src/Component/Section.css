@@ -1,0 +1,30 @@
+/* Section.css */
+.section-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+  
+  /* @media (min-width: 640px) {
+    .section-img {
+      height: 60vh;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .section-img {
+      height: 70vh;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-img {
+      height: 90vh;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .section-img {
+      height: 100vh;
+    }
+  } */

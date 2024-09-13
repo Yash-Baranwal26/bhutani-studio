@@ -1,0 +1,124 @@
+/* Common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 0 1rem; /*Reduced padding for mobile*/
+    height: 4rem; /* Consistent height for the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #331a00; /* Changed background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-bottom: 3px solid #473E66;
+    position: fixed; /* Fixes the header to the top of the screen */
+    top: 0; /* Aligns the header at the top */
+    left: 0;
+    width: 100%; /* Ensures the header spans the entire width */
+    z-index: 1000; 
+    /* opacity: 0.8; */
+}
+
+.web-logo {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Set to 100% to fit within the header height */
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    transform: scale(1.5); 
+    transform-origin: left center; /* Scale from the left center */
+    filter: invert(100%) brightness(200%); 
+    /* fill: white; Scale from the left center */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-list {
+    display: flex;
+    gap: 2rem; /* Adjust gap for better spacing */
+    list-style: none;
+    align-items: center;
+    margin-top: 0;
+}
+
+.navbar-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff; /* Updated color to white for better contrast on red background */
+    font-size: 1rem;
+    font-weight: 400; /* Slightly bolder text */
+    transition: color 0.3s, border-bottom 0.3s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.navbar-link:hover,
+.navbar-link:active {
+    color: black; /* Changed hover color to yellow for better visibility on red */
+    border-bottom: 2px solid black; /* Underline effect on hover */
+}
+
+.mobile-navbar-btn {
+    display: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.mobile-nav-icon {
+    font-size: 2rem; /* Adjust icon size */
+    color: #ffffff; /* Match text color to white for better contrast */
+}
+
+/* Media query for mobile view */
+@media screen and (max-width: 62em) {
+    
+    /* .header{
+        height:4rem;
+    } */
+     .logo{
+        height:60px
+     }
+    .mobile-navbar {
+        width: 100%;
+        background: #2B124C; /* Changed background color to red */
+        position: absolute;
+        top: 4rem;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 999;
+        padding: 1rem 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow to the mobile menu */
+    }
+
+    .mobile-navbar-list {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobile-navbar-btn {
+        display: inline-block;
+        position: absolute;
+        right: 1rem; /* Align to the left */
+        top: 50%;
+        transform: translateY(-50%); /* Center vertically */
+        color: #ffffff; /* Updated button color to white */
+    }
+
+    .navbar-list {
+        display: none;
+    }
+}

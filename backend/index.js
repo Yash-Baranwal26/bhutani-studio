@@ -53,5 +53,13 @@ app.post("/userEnquiry", async (req, res) => {
     }
 });
 
+app.get('/getData',async(req,res) => {
+    try{
+        let data = await users.find()
+        res.send(data)
+    } catch (err) {
+        console.error('Internel server error', err);
+    }
+})
 
 app.listen(PORT, ()=> console.log(`Server is running on port ${PORT}`));

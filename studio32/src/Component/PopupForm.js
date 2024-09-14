@@ -40,7 +40,7 @@ const PopupForm = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       axios
-        .post("http://localhost:4040/userEnquiry", user)
+        .post("https://bhutani32studio.in/userEnquiry", user)
         .then((res) => {
           toast.success(res.data.msg, {
             position: "top-center",

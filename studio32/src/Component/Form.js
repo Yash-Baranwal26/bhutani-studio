@@ -36,7 +36,7 @@ export default function Form() {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
-            axios.post("http://localhost:4040/userEnquiry",  user, { timeout: 5000 })
+            axios.post("https://bhutani32studio.in/userEnquiry",  user, { timeout: 5000 })
                 .then(res => {
                     setNotification({
                         type: 'success',

@@ -7,6 +7,7 @@ export default function Form() {
         mobile: '',
         description: ''
     });
+    const [loading, setLoading] = useState(false);
 
     const [errors, setErrors] = useState({});
 
@@ -18,6 +19,7 @@ export default function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
 
         const validationErrors = {};
 
@@ -34,7 +36,7 @@ export default function Form() {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
-            axios.post("http://localhost:4040/userEnquiry", user)
+            axios.post("http://localhost:4040/userEnquiry",  user, { timeout: 5000 })
                 .then(res => {
                     setNotification({
                         type: 'success',
@@ -49,7 +51,10 @@ export default function Form() {
                         message: err.response?.data?.error || "Something went wrong!",
                         visible: true
                       });
-                });
+                })
+                .finally(() => setLoading(false));
+        } else {
+            setLoading(false); // Stop spinner if validation fails
         }
     };
 
@@ -109,8 +114,8 @@ export default function Form() {
 
                           {/* Submit Button */}
                           <div>
-                              <button className="bg-red-600 text-white w-full py-3 rounded-md hover:bg-red-700 transition duration-300">
-                                  Submit Request
+                              <button className="bg-red-600 text-white w-full py-3 rounded-md hover:bg-red-700 transition duration-300" disabled={loading}>
+                              {loading ? 'Submitting...' : 'Submit Request'}
                               </button>
                           </div>
                       </div>

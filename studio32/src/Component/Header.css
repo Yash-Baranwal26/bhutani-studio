@@ -62,8 +62,8 @@
 
 .navbar-link:hover,
 .navbar-link:active {
-    color: black; /* Changed hover color to yellow for better visibility on red */
-    border-bottom: 2px solid black; /* Underline effect on hover */
+    color: grey; /* Changed hover color to yellow for better visibility on red */
+    /* border-bottom: 2px solid black; */
 }
 
 .mobile-navbar-btn {
@@ -89,7 +89,7 @@
      }
     .mobile-navbar {
         width: 100%;
-        background: #2B124C; /* Changed background color to red */
+        background: #994d00; /* Changed background color to red */
         position: absolute;
         top: 4rem;
         right: 0;
@@ -121,4 +121,9 @@
     .navbar-list {
         display: none;
     }
+    .navbar-link:hover,
+    .navbar-link:active {
+    color: grey; /* Changed hover color to yellow for better visibility on red */
+    /* border-bottom: 2px solid black; */
+}
 }

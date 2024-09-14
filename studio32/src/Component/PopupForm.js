@@ -18,8 +18,11 @@ const PopupForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const validationErrors = {};
 
@@ -63,8 +66,11 @@ const PopupForm = () => {
             pauseOnHover: true,
             draggable: true,
           });
-        });
-    }
+        })
+        .finally(() => setLoading(false));
+      } else {
+          setLoading(false); // Stop spinner if validation fails
+      }
   };
 
   const inputHandler = (e) => {
@@ -133,8 +139,9 @@ const PopupForm = () => {
               <button
                 type="submit"
                 className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300"
+                disabled={loading}
               >
-                Submit
+                {loading ? 'Submitting...' : 'Submit Request'}
               </button>
             </form>
           </div>
